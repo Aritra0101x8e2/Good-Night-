@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Night Message</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0a1323; /* Dark navy */
+        overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+    }
+
+    /* Stars */
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        animation: blink 2s infinite ease-in-out alternate;
+        opacity: 0.8;
+    }
+
+    @keyframes blink {
+        0% { opacity: 0.4; }
+        100% { opacity: 1; }
+    }
+
+    /* Shooting stars */
+    .shooting-star {
+        position: absolute;
+        width: 120px;
+        height: 2px;
+        background: linear-gradient(90deg, white, transparent);
+        top: -10px;
+        animation: shoot 4s linear infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes shoot {
+        0% { transform: translate(0px, 0px) rotate(30deg); opacity: 0; }
+        30% { opacity: 1; }
+        100% { transform: translate(-800px, 800px) rotate(30deg); opacity: 0; }
+    }
+
+    /* Moon */
+    .moon {
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        width: 130px;
+        height: 130px;
+        background: #f5f5f5;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .moon::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 0px;
+        width: 130px;
+        height: 130px;
+        background: #0a1323;
+        border-radius: 50%;
+    }
+
+    /* Message */
+    .message-box {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(10px);
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+        line-height: 1.6;
+        font-size: 17px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #eaf3ff;
+    }
+
+    audio {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<!-- Stars -->
+<script>
+    for (let i = 0; i < 160; i++) {
+        let star = document.createElement("div");
+        star.className = "star";
+        star.style.top = Math.random() * 100 + "vh";
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.animationDuration = 1.5 + Math.random() * 2 + "s";
+        document.body.appendChild(star);
+    }
+
+    // Shooting stars
+    for (let i = 0; i < 4; i++) {
+        let s = document.createElement("div");
+        s.className = "shooting-star";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.animationDelay = Math.random() * 5 + "s";
+        document.body.appendChild(s);
+    }
+</script>
+
+<!-- Moon -->
+<div class="moon"></div>
+
+<!-- Message Box -->
+<div class="message-box">
+    <div class="title">Good Night ✨</div>
+
+    I hope you get a peaceful sleep today.<br><br>
+
+    You’re a very rare kind of person — not because of any big spotlight moments,  
+    but because of the way you consistently show up for your goals and responsibilities.  
+    Most people talk about dreams… but you actually work for them. Quietly, patiently,
